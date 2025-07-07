@@ -24,7 +24,7 @@ export const userRegister = async (req, res, next) => {
   });
 };
 // POST /login
-export const userLogin = async (req, res) => {
+export const userLogin = async (req, res, next) => {
   const { email, password } = req.body;
 
   const checkEmail = await User.findOne({ email });
