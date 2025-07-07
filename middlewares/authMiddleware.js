@@ -6,7 +6,7 @@ const userAuth = async (req, res, next) => {
     if (!authHeader || !authHeader.startsWith("Bearer "))
       return next(new ErrorHandler("Not authorized, no token"));
 
-    const token = authHeader.split("")[1];
+    const token = authHeader.split(" ")[1];
     const payLoad = JWT.verify(token, process.env.JWT_SECRET);
 
     req.user = payLoad; // Attach full payload for flexibility
